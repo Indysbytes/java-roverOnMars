@@ -27,8 +27,9 @@ public class RoverTest {
         String instructions = "F";
         Position expected = new Position(1, 0, NORTH);
         // when
-        Position actual = rover.move(instructions);
+        rover.move(instructions);
 
+        Position actual = rover.getPosition();
         // then
         assertTrue("new position shoulbe 1, 0, NORHT", actual.equals(expected));
     }

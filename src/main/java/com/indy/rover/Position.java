@@ -1,25 +1,25 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.indy.rover;
 
 /**
+ * Class to encapsulate the idea of a position on the grid.
+ * The grid consists of an x & y coordinate and the orientation which is the direction the object is facing.
+ * This class is immutable.
  *
- * @author indy
+ * The default constructor will set the position to the start of the grid (0, 0, NORTH).
+ * 
  */
 public class Position {
 
-    private int x = 0;
-    private int y = 0;
-    private Orientation orientation = Orientation.NORTH;
+    private final int x;
+    private final int y;
+    private final Orientation orientation;
 
 
     /**
-     *
-     * @param x
-     * @param y
-     * @param orientation
+     * Creates a Position object with the point in the grid as per params.
+     * @param x, the x coordinate on the grid
+     * @param y, the y coordinate on the grid
+     * @param orientation the direction of the object is facing.
      */
     public Position(int x, int y, com.indy.rover.Orientation orientation) {
         this.x = x;
@@ -27,8 +27,13 @@ public class Position {
         this.orientation = orientation;
     }
 
-    Position() {
-
+    /**
+     * Default constructor, the position is set to the start of the grid facing up/north.
+     */
+    public Position() {
+        x = 0;
+        y = 0;
+        orientation = Orientation.NORTH;
     }
 
     public int getX() {
@@ -73,13 +78,9 @@ public class Position {
         return true;
     }
 
-
-
     @Override
     public String toString() {
         return "Position{" + "x=" + x + ", y=" + y + ", orientation=" + orientation + '}';
     }
-
-
 
 }

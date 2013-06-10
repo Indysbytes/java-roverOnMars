@@ -1,12 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.indy.rover;
 
 /**
- *
- * @author indy
+ * Enum to establish the type of the orientation field.
+ * 
  */
 public enum Orientation {
     NORTH, SOUTH, EAST, WEST;

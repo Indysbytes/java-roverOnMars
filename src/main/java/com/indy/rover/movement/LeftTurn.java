@@ -1,31 +1,36 @@
 package com.indy.rover.movement;
 
-import com.indy.rover.Orientation;
+import static com.indy.rover.Orientation.*;
 import com.indy.rover.Position;
 
 /**
- *
- * @author indy
+ * This class encapsulates the Left turning motion.
+ * The orientation is adjusted to reflect the new orientation by turning once 90 degrees to the left.
  */
 public class LeftTurn implements Maneuvor{
 
+    /**
+     * Make a turn to the left relative to the orientation on the grid.
+     * @param currentPosition
+     * @return Position, the new position after making the turn.
+     */
     @Override
     public Position execute(Position currentPosition) {
         Position result = currentPosition;
-        if(currentPosition.getOrientation() == Orientation.NORTH){
-            result = new Position(currentPosition.getX(), currentPosition.getY(), Orientation.WEST);
+        if(currentPosition.getOrientation() == NORTH){
+            result = new Position(currentPosition.getX(), currentPosition.getY(), WEST);
         }
 
-        else if(currentPosition.getOrientation() == Orientation.WEST){
-            result = new Position(currentPosition.getX(), currentPosition.getY(), Orientation.SOUTH);
+        else if(currentPosition.getOrientation() == WEST){
+            result = new Position(currentPosition.getX(), currentPosition.getY(), SOUTH);
         }
 
-        else if(currentPosition.getOrientation() == Orientation.SOUTH){
-            result = new Position(currentPosition.getX(), currentPosition.getY(), Orientation.EAST);
+        else if(currentPosition.getOrientation() == SOUTH){
+            result = new Position(currentPosition.getX(), currentPosition.getY(), EAST);
         }
 
-        else if(currentPosition.getOrientation() == Orientation.EAST){
-            result = new Position(currentPosition.getX(), currentPosition.getY(), Orientation.NORTH);
+        else if(currentPosition.getOrientation() == EAST){
+            result = new Position(currentPosition.getX(), currentPosition.getY(), NORTH);
         }
         return result;
     }
