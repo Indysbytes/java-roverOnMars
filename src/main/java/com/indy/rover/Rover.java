@@ -1,9 +1,6 @@
 package com.indy.rover;
 
-import com.indy.rover.movement.Forward;
-import com.indy.rover.movement.LeftTurn;
 import com.indy.rover.movement.Maneuvor;
-import com.indy.rover.movement.RightTurn;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,21 +14,12 @@ public class Rover {
     public static final int MAX_POS_Y = 4;
     public static final int MIN_Y_POS = 0;
 
-    private Maneuvor forward = new Forward();
-    private Maneuvor leftTurn = new LeftTurn();
-    private Maneuvor rightTurn = new RightTurn();
     private Map<Character, Maneuvor> maneuvors = new HashMap<>();
 
     private Position position = new Position();
 
-    public Rover() {
-        init();
-    }
-
-    private void init() {
-        maneuvors.put(Maneuvor.MOVE_FORWARD, this.forward);
-        maneuvors.put(Maneuvor.TURN_LEFT, this.leftTurn);
-        maneuvors.put(Maneuvor.TURN_RIGHT, this.rightTurn);
+    public Rover(Map<Character, Maneuvor> maneuvors) {
+        this.maneuvors.putAll(maneuvors);
     }
 
     public Position move(String instructions) {

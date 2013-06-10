@@ -4,14 +4,21 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static com.indy.rover.Orientation.*;
+import com.indy.rover.movement.Forward;
+import com.indy.rover.movement.LeftTurn;
+import com.indy.rover.movement.Maneuvor;
+import com.indy.rover.movement.RightTurn;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RoverTest {
 
     private Rover rover;
 
+
     @Before
     public void setUp(){
-        rover = new Rover();
+        rover = new Rover(getManeuvors());
     }
 
     @Test
@@ -228,6 +235,16 @@ public class RoverTest {
 
     }
 
+
+    private Map<Character, Maneuvor>  getManeuvors() {
+        Map<Character, Maneuvor> maneuvors = new HashMap<>();
+
+        maneuvors.put(Maneuvor.MOVE_FORWARD, new Forward());
+        maneuvors.put(Maneuvor.TURN_LEFT, new LeftTurn());
+        maneuvors.put(Maneuvor.TURN_RIGHT, new RightTurn());
+
+        return maneuvors;
+    }
 
 
 }
