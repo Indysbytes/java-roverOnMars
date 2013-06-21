@@ -51,10 +51,9 @@ public class Rover {
      * @return Position, the position of Rover in the grid after performing the moves in the instruction.
      */
     public Position move(String instructions) {
-        final int length = instructions.length() -1;
 
-        for (int i=0; i<= length; i++) {
-            setPosition((maneuvors.get(instructions.charAt(i))).execute(position));
+        for (char character : instructions.toCharArray()) {
+            setPosition((maneuvors.get(character)).execute(position));
         }
 
         return position;
