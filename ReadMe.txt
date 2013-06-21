@@ -1,3 +1,10 @@
+==================================================================================================================================
+-- Preamble:
+-- I was given this test to write a part of a screening for a Java Developer role.
+-- I keep this here for reference purposes.
+-- I accept absolutely no responsibility for this code should you choose to use it.
+==================================================================================================================================
+
  * How to run the app.
  *
  * I have used Netbeans 7.2 on an Ubuntu 12.04 LTS OS with JDK 1.7. and Maven 3.
