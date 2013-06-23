@@ -65,17 +65,19 @@ public class Mars {
 
     public static void main( String[] args ) {
         System.out.println( "---------------------------------------------------" );
+        System.out.println("");
 
         Mars mars = new Mars();
-        String instructions = args[1].toUpperCase();
 
-        if(mars.valid(instructions)){
+        if(mars.valid(args)){
+            String instructions = args[1].toUpperCase();
             mars.moveRover(instructions);
         }
         else{
-            System.out.println("Ivalid instructions were submitted, only letters F,L and R are allowed.: usage Mars 'FLFR' ");
+            System.out.println("Invalid instructions were submitted, only letters F,L and R are allowed.: usage Mars 'FLFR' ");
         }
 
+        System.out.println("");
         System.out.println( "---------------------------------------------------" );
     }
 
@@ -94,9 +96,14 @@ public class Mars {
      * @param instructions, the string containing instructions
      * @return true when the instruction contains at least on letter of valid instruction.
      */
-    private boolean valid(String instructions){
-        return (instructions != null && instructions.length() > 0 && instructions.matches(INSTRUCTION_PATTERN));
+    private boolean valid(String[] instructions){
+        boolean result = false;
 
+        if(instructions != null && instructions.length > 1 ){
+            result = (instructions[1].matches(INSTRUCTION_PATTERN));
+        }
+
+        return result;
     }
 
     /**
